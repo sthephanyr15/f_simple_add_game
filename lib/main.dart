@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         textTheme: GoogleFonts.josefinSansTextTheme(),
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
+      home: const Scaffold(
         body: SafeArea(child: SumWidget()),
       ),
     );
@@ -91,14 +91,14 @@ class _SumWidgetState extends State<SumWidget> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Spacer(flex: 1),
+                    const Spacer(flex: 1),
                     Text(
                       'Score: $score',
                       style: const TextStyle(
                         fontSize: 36,
                       ),
                     ),
-                    Spacer(flex: 1),
+                    const Spacer(flex: 1),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: GestureDetector(
@@ -106,9 +106,7 @@ class _SumWidgetState extends State<SumWidget> {
                           print('click');
                           reset();
                         },
-                        child: Container(
-                          child: Icon(Icons.replay),
-                        ),
+                        child: const Icon(Icons.replay),
                       ),
                     )
                   ],
@@ -126,10 +124,10 @@ class _SumWidgetState extends State<SumWidget> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     OpWidget(text: op1.toString()),
-                    OpWidget(text: '+'),
+                    const OpWidget(text: '+'),
                     OpWidget(text: op2.toString()),
-                    OpWidget(text: '='),
-                    OpWidget(text: '?'),
+                    const OpWidget(text: '='),
+                    const OpWidget(text: '?'),
                   ]),
             ),
           ),
@@ -165,9 +163,9 @@ class _SumWidgetState extends State<SumWidget> {
 }
 
 class OpWidget extends StatelessWidget {
-  OpWidget({Key? key, required this.text}) : super(key: key);
+  const OpWidget({Key? key, required this.text}) : super(key: key);
 
-  String text;
+  final String text;
 
   @override
   Widget build(BuildContext context) {
