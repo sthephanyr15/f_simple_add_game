@@ -70,6 +70,14 @@ class _SumWidgetState extends State<SumWidget> {
     vectorRta.shuffle();
   }
 
+  void reset() {
+    setState(() {
+      score = 0;
+    });
+
+    setValues();
+  }
+
   @override
   Widget build(BuildContext context) {
     setValues();
@@ -80,13 +88,31 @@ class _SumWidgetState extends State<SumWidget> {
             padding: const EdgeInsets.all(8.0),
             child: Container(
                 color: Colors.amber,
-                child: Center(
-                    child: Text(
-                  'Score: $score',
-                  style: const TextStyle(
-                    fontSize: 40,
-                  ),
-                ))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Spacer(flex: 1),
+                    Text(
+                      'Score: $score',
+                      style: const TextStyle(
+                        fontSize: 36,
+                      ),
+                    ),
+                    Spacer(flex: 1),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: GestureDetector(
+                        onTap: () {
+                          print('click');
+                          reset();
+                        },
+                        child: Container(
+                          child: Icon(Icons.replay),
+                        ),
+                      ),
+                    )
+                  ],
+                )),
           ),
           flex: 1,
         ),
