@@ -1,6 +1,6 @@
 {
-    "name": "simple_sum_game",
-    "short_name": "simple_sum_game",
+    "name": "f_simple_add_game",
+    "short_name": "f_simple_add_game",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
