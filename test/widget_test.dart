@@ -11,13 +11,14 @@ import 'package:sum_game/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    //Get.put(AppController());
     // Build our app and trigger a frame.
     await tester.pumpWidget(const MyApp());
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
     expect(find.text('1'), findsNothing);
-
+    //AppController AppController=Get.find();
     // Tap the '+' icon and trigger a frame.
     await tester.tap(find.byIcon(Icons.add));
     await tester.pump();
@@ -29,6 +30,15 @@ void main() {
     //verify that the refresh button works
     await tester.tap(find.byIcon(Icons.refresh));
     expect(find.text('0'), findsOneWidget);
+
+    //find the answer button
+    //await tester.tap(find.ancestor(of: find.text(AppController._rta.toString()), matching: find.byType(ElevatedButton)));
+    await tester.pumpAndSettle();
+
+    //find incorrect answer
+    //await tester.tap(find.ancestor(of: find.text((AppController._rta+1).toString()), matching: find.byType(ElevatedButton)));
+    await tester.pumpAndSettle();
+    //await tester.tap(find.ancestor(of: find.text(AppController._rta-1.toString()), matching: find.byType(ElevatedButton)));
   });
 
   // testWidgets('Sum widget works', (WidgetTester tester) async {
